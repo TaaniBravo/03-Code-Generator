@@ -1,6 +1,18 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Generator Functions - these are going to help us create the passwords by having these functions pull from a random number and associating it with the correct string on the Character Code.
+
+function randomLowerCase() {
+  // Here I have the function returning us a random string from the CharCode from 97 up to 122. This will out put letters a-z in lower case.
+  return String.fromCharCode(Math.floor(Math.random()) * 26 + 97);
+}
+
+function randomUpperCase() {
+  // Here I have the function returning us a random string from the CharCode from 65 up to 90. This will out put letters A-Z in upper case.
+  return String.fromCharCode(Math.floor(Math.random()) * 26 + 65);
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword(characterAmount, includeUpperCase, includeNumbers, includeSymbols);
@@ -14,18 +26,17 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
-if writePassword() {
-for (let i = 8; i < 128;) {
-  function characterAmount{
+
+  function characterAmount() {
     prompt('Please choose from 8 to 128 characters.')
 
-  function includeUpperCase{
+  function includeUpperCase() {
     confirm('Include Uppercase?')
 
-  function includeNumbers {
+  function includeNumbers() {
     confirm('Include Numbers?')
 
-  function includeSymbols {
+  function includeSymbols() {
     confirm('Include Symbols?')
   }
   }
