@@ -1,7 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Generator Functions - these are going to help us create the passwords by having these functions pull from a random number and associating it with the correct string on the Character Code.
+// Generator Functions - these are going to help us create the passwords by having these functions pull from a random number and associating it with the correct string on the Character Code. 
+
+// The charCode that I am referencing can be found here https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
 
 function randomLowerCase() {
   // Here I have the function returning us a random string from the CharCode from 97 up to 122. This will out put letters a-z in lower case.
@@ -11,6 +13,14 @@ function randomLowerCase() {
 function randomUpperCase() {
   // Here I have the function returning us a random string from the CharCode from 65 up to 90. This will out put letters A-Z in upper case.
   return String.fromCharCode(Math.floor(Math.random()) * 26 + 65);
+}
+
+function randomNumber() {
+  return String.fromCharCode(Math.floor(Math.random()) * 10 + 48);
+}
+
+function randomSymbol() {
+  return String.fromCharCode(Math.floor(Math.random()) * 15 + 33)
 }
 
 // Write password to the #password input
