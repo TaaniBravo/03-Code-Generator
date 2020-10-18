@@ -14,6 +14,24 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
+if writePassword() {
+for (let i = 8; i < 128;) {
+  function characterAmount{
+    prompt('Please choose from 8 to 128 characters.')
+
+  function includeUpperCase{
+    confirm('Include Uppercase?')
+
+  function includeNumbers {
+    confirm('Include Numbers?')
+
+  function includeSymbols {
+    confirm('Include Symbols?')
+  }
+  }
+}
+}
+}
 // THEN I am presented with a series of prompts for password criteria
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
