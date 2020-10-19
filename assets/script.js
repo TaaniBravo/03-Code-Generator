@@ -1,33 +1,40 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// User Variables
+var pwLength;
+var useLower;
+var useUpper;
+var useNumbers;
+var useSymbols;
 
 // Generator Functions - these are going to help us create the passwords by having these functions pull from a random number and associating it with the correct string on the Character Code. 
 function randomLowerCase() {
   // Here I have the function returning us a random string from the CharCode from 97 up to 122. This will out put letters a-z in lower case.
   return String.fromCharCode(Math.floor(Math.random()) * 26 + 97);
 }
+console.log(randomLowerCase())
 
 function randomUpperCase() {
   // Here I have the function returning us a random string from the CharCode from 65 up to 90. This will out put letters A-Z in upper case.
   return String.fromCharCode(Math.floor(Math.random()) * 26 + 65);
 }
-
+console.log(randomUpperCase())
 function randomNumber() {
   // Like the others this function pulls out a random number from the CharCode provided.
   return String.fromCharCode(Math.floor(Math.random()) * 10 + 48);
 }
-
+console.log(randomNumber())
 function randomSymbol() {
-  // The hardest one. We needed to use concatenations so we could bring multiple strings together because in the char code the symbols are broken up into 4 different decoder ranges.
-  return String.fromCharCode(Math.floor(Math.random()) * 15 + 32).concat(
+  // We needed to use concatenations so we could bring multiple strings together because in the char code the symbols are broken up into 4 different decoder ranges.
+  return String.fromCharCode(Math.floor(Math.random()) * 15 + 32) || (
     String.fromCharCode(Math.floor(Math.random()) * 7 + 58)
-  ).concat(
+  ) || (
     String.fromCharCode(Math.floor(Math.random()) * 6 + 91)
-  ).concat(
+  ) || (
     String.fromCharCode(Math.floor(Math.random()) * 4 + 123)
   )
 }
-
+console.log(randomSymbol())
 // The charCode that I am referencing can be found here https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
 
 // Write password to the #password input
@@ -37,17 +44,20 @@ function writePassword() {
   var passwordEL = document.getElementById('password');
 
   passwordText.value = password;
-
+  password = '';
+    
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword(characterAmount, includeUpperCase, includeNumbers, includeSymbols)); {
+generateBtn.addEventListener("click", writePassword()); {
   console.log(generatePassword())
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
 
+function writePassword(characterAmount, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols) {
   function characterAmount() {
     var pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
+    
     // We will use a if and else if statement to make sure they follow the parameters we give them.
     if (pwLength === "") {
       alert('This box cannot be empty.')
@@ -56,15 +66,20 @@ generateBtn.addEventListener("click", writePassword(characterAmount, includeUppe
       alert('This prompt needs a value between 8 and 128.')
     }
   }
+  function includeLowerCase() {
+    confirm('Include lower case letters?')
+    
+  }
   function includeUpperCase() {
-    confirm('Include Uppercase?')
+    confirm('Include upper case letters?')
   }
   function includeNumbers() {
-    confirm('Include Numbers?')
+    confirm('Include numbers?')
   }
   function includeSymbols() {
-    confirm('Include Symbols?')
+    confirm('Include symbols?')
   }
+}
 }
 // THEN I am presented with a series of prompts for password criteria
 // WHEN prompted for password criteria
