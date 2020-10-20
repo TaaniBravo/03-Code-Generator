@@ -1,6 +1,5 @@
-// Assignment Code
+// Assignment Codes
 var generateBtn = document.querySelector("#generate");
-// User Variables
 var pwLength;
 var useLower;
 var useUpper;
@@ -42,8 +41,8 @@ console.log(randomSymbol())
 // The charCode that I am referencing can be found here https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword(characterAmount, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols);
+function writePassword(characterAmount, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols) {
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
   var passwordEL = document.getElementById('password');
 
@@ -66,13 +65,18 @@ function writePassword() {
     if (pwLength === "") {
       alert('This box cannot be empty.')
     }
-    else if (pwLength < 8 || pwLength >128) {
+    else if (pwLength < 8 || pwLength > 128) {
       alert('This prompt needs a value between 8 and 128.')
     }
+
+    console.log(pwLength)
   }
   function includeLowerCase() {
-    confirm('Include lower case letters?')
-    
+    useUpper = confirm('Include lower case letters?')
+    if (useLower = true) {
+
+    }
+    else 
   }
   function includeUpperCase() {
     confirm('Include upper case letters?')
