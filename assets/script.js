@@ -1,31 +1,33 @@
 // Assignment Codes
 var generateBtn = document.querySelector("#generate");
-var pwLength;
-var useLower;
-var useUpper;
-var useNumbers;
-var useSymbols;
+let pwLength;
+let useLower;
+let useUpper;
+let useNumbers;
+let useSymbols;
 
 // Generator Functions - these are going to help us create the passwords by having these functions pull from a random number and associating it with the correct string on the Character Code. 
-function randomLowerCase() {
+let useLower = function randomLowerCase() {
   // Here I have the function returning us a random string from the CharCode from 97 up to 122. This will out put letters a-z in lower case.
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 console.log(randomLowerCase())
 
-function randomUpperCase() {
+let useUpper = function randomUpperCase() {
   // Here I have the function returning us a random string from the CharCode from 65 up to 90. This will out put letters A-Z in upper case.
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 console.log(randomUpperCase())
-function randomNumber() {
+
+let useNumbers = function randomNumber() {
   // Like the others this function pulls out a random number from the CharCode provided.
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 console.log(randomNumber())
-function randomSymbol() {
+
+let useSymbols = function randomSymbol() {
   // We needed to use concatenations so we could bring multiple strings together because in the char code the symbols are broken up into 4 different decoder ranges.
-  var randomSym = String.fromCharCode(Math.floor(Math.random() * 15) + 32).concat(
+  const randomSym = String.fromCharCode(Math.floor(Math.random() * 15) + 32).concat(
     String.fromCharCode(Math.floor(Math.random() * 7) + 58)
   ).concat(
     String.fromCharCode(Math.floor(Math.random() * 6) + 91)
@@ -34,14 +36,14 @@ function randomSymbol() {
   )
 
   console.log(randomSym)
-  var randomIndex = (Math.floor(Math.random() * randomSym.length))
+  let randomIndex = (Math.floor(Math.random() * randomSym.length))
   return randomSym[randomIndex]
 }
-console.log(randomSymbol())
+console.log(useSymbols)
 // The charCode that I am referencing can be found here https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
 
 // Write password to the #password input
-function writePassword(characterAmount, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols) {
+function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   var passwordEL = document.getElementById('password');
@@ -53,7 +55,7 @@ function writePassword(characterAmount, includeLowerCase, includeUpperCase, incl
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword()); {
-  console.log(generatePassword())
+
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
 
