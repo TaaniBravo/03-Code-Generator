@@ -1,5 +1,6 @@
 // Assignment Codes
 const generateBtn = document.querySelector("#generate");
+var include;
 
 // Random Generator Functions 
 let useLower = function randomLowerCase() {
@@ -62,6 +63,15 @@ function generatePassword() {
 
   // To include symbols or not.
     let includeSymbols = confirm('Include symbols in password?')
+  };
+
+  // character combinations
+  if (!includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
+    alert('You must include one of the 4 variables given. Please click "Generate a Password" again.')
+  }
+  // if only lower case letters are include.
+  else if (includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
+
   }
 }
 // Write password to the #password input
