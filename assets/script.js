@@ -1,5 +1,5 @@
 // Assignment Codes
-var generateBtn = document.querySelector("#generate");
+const generateBtn = document.querySelector("#generate");
 
 // Random Generator Functions 
 let useLower = function randomLowerCase() {
@@ -37,25 +37,26 @@ console.log(useSymbols())
 
 // The charCode that I am referencing can be found here https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
 
-function generatePassword() {
+function generatePassword(characterAmount, includeLowerCase, includeUpperCase, includeSymbols) {
   // Password Length
-  function characterAmount() {
-    var pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
+   function characterAmount() {
+    let pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
     
     // We will use a if and else if statement to make sure they follow the parameters we give them.
     if (pwLength === "") {
+      // If they leave box empty they will be given the alert message and need to click the generate button again.
       alert('This box cannot be empty.')
     }
     else if (pwLength < 8 || pwLength > 128) {
-      alert('This prompt needs a value between 8 and 128.')
+      // If they give us a value that is not between 8 and 128 then they will be asked again.
+      pwLength = parseInt(prompt('Please provide a value between 8 and 128.')
     }
 
-    console.log(pwLength)
   }
 
   // To include lower case or not.
   function includeLowerCase() {
-    useUpper = confirm('Include lower case letters?')
+    let lowercase = confirm('Include lower case letters?')
     if (useLower = true) {
 
     }
@@ -91,7 +92,8 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); {
-
+  generatePassword(characterAmount(), )
+}
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
 
