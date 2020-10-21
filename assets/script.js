@@ -37,9 +37,8 @@ console.log(useSymbols())
 
 // The charCode that I am referencing can be found here https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
 
-function generatePassword(characterAmount, includeLowerCase, includeUpperCase, includeSymbols) {
+function generatePassword() {
   // Password Length
-   function characterAmount() {
     let pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
     
     // We will use a if and else if statement to make sure they follow the parameters we give them.
@@ -49,36 +48,22 @@ function generatePassword(characterAmount, includeLowerCase, includeUpperCase, i
     }
     else if (pwLength < 8 || pwLength > 128) {
       // If they give us a value that is not between 8 and 128 then they will be asked again.
-      pwLength = parseInt(prompt('Please provide a value between 8 and 128.')
+      pwLength = parseInt(prompt('Please provide a value between 8 and 128.'))
     }
-
-  }
-
+    else {
   // To include lower case or not.
-  function includeLowerCase() {
-    let lowercase = confirm('Include lower case letters?')
-    if (useLower = true) {
-
-    }
-    else {}
-  }
+    let includeLower = confirm('Include lower case letters in password?')
 
   // To include upper case letters or not.
-  function includeUpperCase() {
-    confirm('Include upper case letters?')
-  }
-
+    let includeUpper = confirm('Include upper case letters in password?')
+  
   // To include numbers or not.
-  function includeNumbers() {
-    confirm('Include numbers?')
-  }
+    let includeNumbers = confirm('Include numbers in password?')
 
   // To include symbols or not.
-  function includeSymbols() {
-    confirm('Include symbols?')
+    let includeSymbols = confirm('Include symbols in password?')
   }
 }
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -92,22 +77,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); {
-  generatePassword(characterAmount(), )
+  return password[]
 }
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-
-
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
