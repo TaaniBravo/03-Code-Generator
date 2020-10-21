@@ -1,27 +1,27 @@
 // Assignment Codes
 var generateBtn = document.querySelector("#generate");
 
-// Generator Functions - these are going to help us create the passwords by having these functions pull from a random number and associating it with the correct string on the Character Code. 
+// Random Generator Functions 
 let useLower = function randomLowerCase() {
-  // Here I have the function returning us a random string from the CharCode from 97 up to 122. This will out put letters a-z in lower case.
+  // This will out put letters a-z in lower case fromCharCode.
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 console.log(useLower())
 
 let useUpper = function randomUpperCase() {
-  // Here I have the function returning us a random string from the CharCode from 65 up to 90. This will out put letters A-Z in upper case.
+  // This will out put letters A-Z in upper case fromCharCode.
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 console.log(useUpper())
 
 let useNumbers = function randomNumber() {
-  // Like the others this function pulls out a random number from the CharCode provided.
+  // This will out put numbers fromCharCode.
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 console.log(useNumbers())
 
 let useSymbols = function randomSymbol() {
-  // We needed to use concatenations so we could bring multiple strings together because in the char code the symbols are broken up into 4 different decoder ranges.
+  // Using concatenation we have this function pull from the 4 ranges in the character code and then it randomly picks from those 4.
   const randomSym = String.fromCharCode(Math.floor(Math.random() * 15) + 32).concat(
     String.fromCharCode(Math.floor(Math.random() * 7) + 58)
   ).concat(
@@ -76,7 +76,6 @@ function generatePassword() {
   function includeSymbols() {
     confirm('Include symbols?')
   }
-}
 }
 
 // Write password to the #password input
