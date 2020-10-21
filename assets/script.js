@@ -1,27 +1,33 @@
 // Assignment Codes
 let generateBtn = document.querySelector("#generate");
 let include;
+const genFunctions = {
+  useLower: randomLowerCase,
+  useUpper: randomUpperCase,
+  useNumbers: randomNumber,
+  useSymbols: randomSymbol
+}
 
 // Random Generator Functions 
-let useLower = function randomLowerCase() {
+function randomLowerCase() {
   // This will out put letters a-z in lower case fromCharCode.
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 // console.log(useLower())
 
-let useUpper = function randomUpperCase() {
+function randomUpperCase() {
   // This will out put letters A-Z in upper case fromCharCode.
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 // console.log(useUpper())
 
-let useNumbers = function randomNumber() {
+function randomNumber() {
   // This will out put numbers fromCharCode.
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 // console.log(useNumbers())
 
-let useSymbols = function randomSymbol() {
+function randomSymbol() {
   // Using concatenation we have this function pull from the 4 ranges in the character code and then it randomly picks from those 4.
   const randomSym = String.fromCharCode(Math.floor(Math.random() * 15) + 32).concat(
     String.fromCharCode(Math.floor(Math.random() * 7) + 58)
@@ -39,16 +45,16 @@ let useSymbols = function randomSymbol() {
 
 function generatePassword() {
   // Password Length
-  let pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
+  const pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
     
     // We will use a if and else if statement to make sure they follow the parameters we give them.
-  if (pwLength === "") {
+  if (pwLength === '') {
       // If they leave box empty they will be given the alert message and need to click the generate button again.
       alert('This box cannot be empty.')
     }
   else if (pwLength < 8 || pwLength > 128) {
       // If they give us a value that is not between 8 and 128 then they will be asked again.
-      pwLength = parseInt(prompt('Please provide a value between 8 and 128.'))
+      pwLength == parseInt(prompt('Please provide a value between 8 and 128.'))
     }
   else {
   // To include lower case or not.
@@ -71,7 +77,7 @@ function generatePassword() {
   }
   // if only lower case letters are include.
   else if (includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
-    include = useLower()
+    return include = 
   }
 }
 
