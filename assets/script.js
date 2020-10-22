@@ -7,6 +7,7 @@ const genFunctions = {
   useNumbers: randomNumber,
   useSymbols: randomSymbol
 }
+const pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
 
 // Random Generator Functions 
 function randomLowerCase() {
@@ -38,15 +39,19 @@ function randomSymbol() {
   )
 
   let randomIndex = (Math.floor(Math.random() * randomSym.length))
-  randomSym[randomIndex]
+  return randomSym[randomIndex]
 }
 
 // The charCode that I am referencing can be found here https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
 
-function generatePassword() {
+
+
+function generatePassword(pwLength, useLower, useUpper, useNumbers, useSymbols) {
   // Password Length
-  const pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
-    
+  // const pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
+  var createdPassword = '';
+  const Generator = useLower + useUpper + useNumbers + useSymbols;
+  pwLength;
     // We will use a if and else if statement to make sure they follow the parameters we give them.
   if (pwLength === '') {
       // If they leave box empty they will be given the alert message and need to click the generate button again.
@@ -70,6 +75,18 @@ function generatePassword() {
     var includeSymbols = confirm('Include symbols in password?')
   };
 
+  // // character combinations
+  // // If they choose to exclude everything.
+  // if (!includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
+  //   alert('You must include one of the 4 variables given. Please click "Generate a Password" again.')
+  // }
+  // // if only lower case letters are include.
+  // else if (includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
+  //   // include = useLower(pwLength)
+  //   createdPassword += useLower
+  // }
+
+  for (let charCount = 0; charCount < pwLength; charCount += Generator) {
   // character combinations
   // If they choose to exclude everything.
   if (!includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
@@ -77,11 +94,14 @@ function generatePassword() {
   }
   // if only lower case letters are include.
   else if (includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
-    return include = 
+    // include = useLower(pwLength)
+    createdPassword += useLower
   }
+  }
+  console.log(generatePassword())
 }
 
-console.log(generatePassword())
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -96,3 +116,5 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword); {
 
 }
+
+console.log(pwLength)
