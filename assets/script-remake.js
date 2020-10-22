@@ -30,23 +30,44 @@ function generatePassword() {
   //declare a new list of characters to use
   let charactersToUse = [];
 
-  // Confirm if the password generator is using lower case letters
-
-  // confirm if its using upper case letters
-
-  // confirm if its using numbers
-
-  // confirm if its using symbols
-
   // declare a new password string
   let password = '';
+
+  // Confirm if the password generator is using lower case letters
+
+  //IF  using lowercase letters
+  //THEN push lowercase into the charactersToUse list
+  //AND APPEND  on random number from the numbers' list
+
+  // CONFIRM if its using upper case letters
+
+  // IF  using upper case letters
+  // THEN push upper case into the charactersToUse list
+
+  // CONFIRM if its using numbers
+
+  // IF using numbers
+  // THEN push numbers into the charactersToUse list
+
+  // CONFIRM if its using symbols
+
+  // IF  using symbols
+  // THEN push symbols into the charactersToUse list
+
+  // IF NOT charactersToUse.length
+  // THEN ALERT to the user that they need to provide a correct length
+  // AND EXIT FUNCTION
+  
 
   while( password.length < passwordLength ) {
 
     // SELECT a randomcharacter a character form charactersToUse
     // APPEND randomcharacter to password string
-    
+
   }
+
+  //'RETURN password'
+  return password;
 }
 
 // Write password to the #password input
