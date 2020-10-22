@@ -4,11 +4,11 @@ var generateBtn = document.querySelector("#generate");
 // List if lower case letters.
 let lowercase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 // List of upper case letters
-let uppercase = lowercase.toUpperCase();
+let uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 //List of numbers.
 let numbers = [0,1,2,3,4,5,6,7,8,9];
 // List of symbols
-let symbols = [];
+let symbols = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
 
 
@@ -33,26 +33,50 @@ function generatePassword() {
   // declare a new password string
   let password = '';
 
-  // Confirm if the password generator is using lower case letters
-
+  // CONFIRM if the password generator is using lower case letters
+  let useLower = confirm('Include lowercase letters in your password?')
   //IF  using lowercase letters
-  //THEN push lowercase into the charactersToUse list
-  //AND APPEND  on random number from the numbers' list
-
+  if (useLower == true) {
+    //THEN push lowercase into the charactersToUse list
+    charactersToUse.push(lowercase)
+    //AND APPEND on random number from the 'lowercase' list
+    charactersToUse.push(Math.floor(Math.random) * lowercase.length)
+  }
+console.log(lowercase)
   // CONFIRM if its using upper case letters
+  let useUpper = confirm('Include uppercase letters in your password?')
 
   // IF  using upper case letters
-  // THEN push upper case into the charactersToUse list
+  if (useUpper == true) { 
 
+    // THEN push upper case into the charactersToUse list
+
+    // AND APPEND on random number from the 'uppercase' list
+
+  }
+  
   // CONFIRM if its using numbers
+  let useNumbers = confirm('Include numbers in your password?')
 
   // IF using numbers
+  if (useNumbers == true) {
+
   // THEN push numbers into the charactersToUse list
 
-  // CONFIRM if its using symbols
+  // AND APPEND on random number from the 'numbers' list
 
+  }
+
+  // CONFIRM if its using symbols
+  let useSymbols = confirm('Include symbols in your password?')
   // IF  using symbols
+  if (useSymbols == true) {
+
   // THEN push symbols into the charactersToUse list
+
+  // AND APPEND on random number from the 'symbols' list
+
+  }
 
   // IF NOT charactersToUse.length
   // THEN ALERT to the user that they need to provide a correct length
@@ -61,8 +85,8 @@ function generatePassword() {
 
   while( password.length < passwordLength ) {
 
-    // SELECT a randomcharacter a character form charactersToUse
-    // APPEND randomcharacter to password string
+    // SELECT a 'randomcharacter' a character fromm charactersToUse
+    // APPEND 'randomcharacter' to 'password' string
 
   }
 
