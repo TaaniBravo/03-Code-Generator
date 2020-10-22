@@ -27,7 +27,26 @@ function generatePassword() {
     return;
   }
 
-  // Confirm if the password generator is using letters
+  //declare a new list of characters to use
+  let charactersToUse = [];
+
+  // Confirm if the password generator is using lower case letters
+
+  // confirm if its using upper case letters
+
+  // confirm if its using numbers
+
+  // confirm if its using symbols
+
+  // declare a new password string
+  let password = '';
+
+  while( password.length < passwordLength ) {
+
+    // SELECT a randomcharacter a character form charactersToUse
+    // APPEND randomcharacter to password string
+    
+  }
 }
 
 // Write password to the #password input
