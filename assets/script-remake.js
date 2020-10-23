@@ -10,12 +10,12 @@ let numbers = [0,1,2,3,4,5,6,7,8,9];
 // List of symbols
 let symbols = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
-let randomLower = lowercase[Math.floor(Math.random() * lowercase.length)];
-let randomUpper = uppercase[Math.floor(Math.random() * uppercase.length)];
-let randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
-let randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+// let randomLower = lowercase[Math.floor(Math.random() * lowercase.length)];
+// let randomUpper = uppercase[Math.floor(Math.random() * uppercase.length)];
+// let randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+// let randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
 
-console.log (randomLower, randomUpper, randomNumber, randomSymbol)
+// console.log (randomLower, randomUpper, randomNumber, randomSymbol)
 
 
 function generatePassword() {
@@ -33,10 +33,10 @@ function generatePassword() {
     return;
   }
 
-  //declare a new list of characters to use
+  //DECLARE a new list of characters to use
   let charactersToUse = [];
 
-  // declare a new password string
+  // DECLARE a new password string
   let password = '';
 
   // CONFIRM if the password generator is using lower case letters
@@ -44,11 +44,11 @@ function generatePassword() {
   //IF  using lowercase letters
   if (useLower == true) {
     //THEN push lowercase into the charactersToUse list
-    charactersToUse.push(randomLower)
+    charactersToUse.push(lowercase)
     // AND APPEND on random number from the 'lowercase' list
-
+    charactersToUse[Math.floor(Math.random() * lowercase.length)];
   }
-console.log(charactersToUse)
+
   // CONFIRM if its using upper case letters
   let useUpper = confirm('Include uppercase letters in your password?')
 
@@ -56,9 +56,9 @@ console.log(charactersToUse)
   if (useUpper == true) { 
 
     // THEN push upper case into the charactersToUse list
-    charactersToUse.push(randomUpper)
+    charactersToUse.push(uppercase)
     // AND APPEND on random number from the 'uppercase' list
-
+    charactersToUse[Math.floor(Math.random() * uppercase.length)];
   }
   
   // CONFIRM if its using numbers
@@ -68,9 +68,9 @@ console.log(charactersToUse)
   if (useNumbers == true) {
 
     // THEN push numbers into the charactersToUse list
-    charactersToUse.push(randomNumber)
+    charactersToUse.push(numbers)
     // AND APPEND on random number from the 'numbers' list
-
+    charactersToUse[Math.floor(Math.random() * numbers.length)];
   }
 
   // CONFIRM if its using symbols
@@ -79,32 +79,31 @@ console.log(charactersToUse)
   if (useSymbols == true) {
 
     // THEN push symbols into the charactersToUse list
-    charactersToUse.push(randomSymbol)
+    charactersToUse.push(symbols)
     // AND APPEND on random number from the 'symbols' list
-
+    charactersToUse[Math.floor(Math.random() * symbols.length)];
   }
 
+  // If no character type variables are chosen
   if ( !useLower && !useUpper && !useNumbers && !useSymbols) {
-    alert('You must pick at least one of the 4 criteria to fill your password. Try again.')
+    // THEN ALERT the user that they need to pick at least one.
+    alert('You must pick at least 1 of the 4 criteria to fill your password. Try again.')
+    // RETURN the user so they can start over.
     return;
-  }
-
-  // IF NOT charactersToUse.length
-  // THEN ALERT to the user that they need to provide a correct length
-  // AND EXIT FUNCTION
-  
+  }  
 
   while( password.length < passwordLength ) {
 
-    let randomcharacter = 
-
     // SELECT a 'randomcharacter' a character from charactersToUse
+    let randomcharacter = charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
     // APPEND 'randomcharacter' to 'password' string
-
+    password.concat(randomcharacter);
+    
   }
 
   //'RETURN password'
   return password;
+  
 }
 
 // Write password to the #password input
@@ -118,5 +117,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); {
-  console.log(charactersToUse[lowercase])
 }
