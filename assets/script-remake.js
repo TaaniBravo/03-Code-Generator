@@ -38,11 +38,11 @@ function generatePassword() {
   //IF  using lowercase letters
   if (useLower == true) {
     //THEN push lowercase into the charactersToUse list
-    charactersToUse.push(lowercase)
+    charactersToUse.push(lowercase[[Math.floor(Math.random * lowercase.length)]])
     //AND APPEND on random number from the 'lowercase' list
-    charactersToUse.push(Math.floor(Math.random) * lowercase.length)
+    charactersToUse.append
   }
-console.log(lowercase)
+console.log(charactersToUse)
   // CONFIRM if its using upper case letters
   let useUpper = confirm('Include uppercase letters in your password?')
 
@@ -78,6 +78,11 @@ console.log(lowercase)
 
   }
 
+  if ( !useLower && !useUpper && !useNumbers && !useSymbols) {
+    alert('You must pick at least one of the 4 criteria to fill your password. Try again.')
+    return;
+  }
+
   // IF NOT charactersToUse.length
   // THEN ALERT to the user that they need to provide a correct length
   // AND EXIT FUNCTION
@@ -104,4 +109,6 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword); {
+  console.log(charactersToUse[lowercase])
+}
