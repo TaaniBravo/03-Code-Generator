@@ -1,120 +1,100 @@
-// Assignment Codes
-let generateBtn = document.querySelector("#generate");
-let include;
-const genFunctions = {
-  useLower: randomLowerCase,
-  useUpper: randomUpperCase,
-  useNumbers: randomNumber,
-  useSymbols: randomSymbol
-}
-const pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-// Random Generator Functions 
-function randomLowerCase() {
-  // This will out put letters a-z in lower case fromCharCode.
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-// console.log(useLower())
+// List if lower case letters.
+let lowercase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+// List of upper case letters
+let uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+//List of numbers.
+let numbers = [0,1,2,3,4,5,6,7,8,9];
+// List of symbols
+let symbols = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
-function randomUpperCase() {
-  // This will out put letters A-Z in upper case fromCharCode.
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-// console.log(useUpper())
+function generatePassword() {
 
-function randomNumber() {
-  // This will out put numbers fromCharCode.
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-// console.log(useNumbers())
+  //Prompt the user for a password length
+  const passwordLength = parseInt(prompt('Provide a length for the password between 8 and 128 characters.'))
+  // if statement if the the password length is 0.
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert('Please provide a number between 8 and 128 characters.')
+    // then exit function.
+    return;
+  }
 
-function randomSymbol() {
-  // Using concatenation we have this function pull from the 4 ranges in the character code and then it randomly picks from those 4.
-  const randomSym = String.fromCharCode(Math.floor(Math.random() * 15) + 32).concat(
-    String.fromCharCode(Math.floor(Math.random() * 7) + 58)
-  ).concat(
-    String.fromCharCode(Math.floor(Math.random() * 6) + 91)
-  ).concat(
-    String.fromCharCode(Math.floor(Math.random() * 4) + 123)
-  )
+  //DECLARE a new list of characters to use
+  let charactersToUse = [];
 
-  let randomIndex = (Math.floor(Math.random() * randomSym.length))
-  return randomSym[randomIndex]
-}
+  // DECLARE a new password string
+  let password = [];
 
-// The charCode that I am referencing can be found here https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
-
-
-
-function generatePassword(pwLength, useLower, useUpper, useNumbers, useSymbols) {
-  // Password Length
-  // const pwLength = parseInt(prompt('Please choose from 8 to 128 characters.'))
-  var createdPassword = '';
-  const Generator = useLower + useUpper + useNumbers + useSymbols;
-  pwLength;
-    // We will use a if and else if statement to make sure they follow the parameters we give them.
-  if (pwLength === '') {
-      // If they leave box empty they will be given the alert message and need to click the generate button again.
-      alert('This box cannot be empty.')
+  // CONFIRM if the password generator is using lower case letters
+  let useLower = confirm('Include lowercase letters in your password?')
+  //IF  using lowercase letters
+    if (useLower == true) {
+      //THEN CONCATENATE lowercase into the charactersToUse list
+      charactersToUse = charactersToUse.concat(lowercase);
     }
-  else if (pwLength < 8 || pwLength > 128) {
-      // If they give us a value that is not between 8 and 128 then they will be asked again.
-      pwLength == parseInt(prompt('Please provide a value between 8 and 128.'))
-    }
-  else {
-  // To include lower case or not.
-    var includeLower = confirm('Include lower case letters in password?')
 
-  // To include upper case letters or not.
-    var includeUpper = confirm('Include upper case letters in password?')
+  // CONFIRM if its using upper case letters
+  let useUpper = confirm('Include uppercase letters in your password?')
+
+  // IF  using upper case letters
+    if (useUpper == true) { 
+
+      // THEN CONCATENATE upper case into the charactersToUse list
+      charactersToUse = charactersToUse.concat(uppercase)
+    }
   
-  // To include numbers or not.
-    var includeNumbers = confirm('Include numbers in password?')
+  // CONFIRM if its using numbers
+  let useNumbers = confirm('Include numbers in your password?')
 
-  // To include symbols or not.
-    var includeSymbols = confirm('Include symbols in password?')
-  };
+  // IF using numbers
+    if (useNumbers == true) {
 
-  // // character combinations
-  // // If they choose to exclude everything.
-  // if (!includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
-  //   alert('You must include one of the 4 variables given. Please click "Generate a Password" again.')
-  // }
-  // // if only lower case letters are include.
-  // else if (includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
-  //   // include = useLower(pwLength)
-  //   createdPassword += useLower
-  // }
+      // THEN push numbers into the charactersToUse list
+      charactersToUse = charactersToUse.concat(numbers)
+    }
 
-  for (let charCount = 0; charCount < pwLength; charCount += Generator) {
-  // character combinations
-  // If they choose to exclude everything.
-  if (!includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
-    alert('You must include one of the 4 variables given. Please click "Generate a Password" again.')
+  // CONFIRM if its using symbols
+  let useSymbols = confirm('Include symbols in your password?')
+  // IF  using symbols
+    if (useSymbols == true) {
+
+      // THEN push symbols into the charactersToUse list
+      charactersToUse = charactersToUse.concat(symbols)
+    }
+
+  // If no character type variables are chosen
+  if ( !useLower && !useUpper && !useNumbers && !useSymbols) {
+    // THEN ALERT the user that they need to pick at least one.
+    alert('You must pick at least 1 of the 4 criteria to fill your password. Try again.');
+    // RETURN the user so they can start over.
+    return;
+  }  
+ console.log(charactersToUse)
+  while( password.length < passwordLength ) {
+
+    // SELECT a 'randomcharacter' a character from charactersToUse
+    let randomCharacter = charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
+    // APPEND 'randomcharacter' to 'password' array
+    password.push(randomCharacter).join
+    finishedPW = password.join('')
+    
   }
-  // if only lower case letters are include.
-  else if (includeLower && !includeUpper && !includeNumbers && !includeSymbols) {
-    // include = useLower(pwLength)
-    createdPassword += useLower
-  }
-  }
-  console.log(generatePassword())
+
+  //'RETURN finishedPW'
+  return finishedPW;
+
 }
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  password = '';
-    
+
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); {
-
 }
-
-console.log(pwLength)
