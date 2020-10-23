@@ -10,14 +10,6 @@ let numbers = [0,1,2,3,4,5,6,7,8,9];
 // List of symbols
 let symbols = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
-// let randomLower = lowercase[Math.floor(Math.random() * lowercase.length)];
-// let randomUpper = uppercase[Math.floor(Math.random() * uppercase.length)];
-// let randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
-// let randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-
-// console.log (randomLower, randomUpper, randomNumber, randomSymbol)
-
-
 function generatePassword() {
 
   //Prompt the user for a password length
@@ -26,16 +18,16 @@ function generatePassword() {
   if (passwordLength === 0) {
     alert('Please provide a number between 8 and 128 characters.')
   }
-  // if the user provides a number outside of the length range.
-  else if (passwordLength < 8 || passwordLength > 128){
+  // ELSE IF the user provides a number outside of the length range.
+  else if (passwordLength < 8 || passwordLength > 128) {
     alert('Please provide a number between 8 and 128 characters.')
     // then exit function.
     return;
   }
-  // else {
-  //   // ELSE if the user sends an empty prompt or hits cancel.
-  //   return alert('Please provide a number between 8 and 128 characters.');
-  // }
+  else if (passwordLength == '' || passwordLength == null) {
+    alert('Please provide a number between 8 and 128 characters.')
+    // THEN exit function
+  }
 
   //DECLARE a new list of characters to use
   let charactersToUse = [];
@@ -46,47 +38,39 @@ function generatePassword() {
   // CONFIRM if the password generator is using lower case letters
   let useLower = confirm('Include lowercase letters in your password?')
   //IF  using lowercase letters
-  if (useLower == true) {
-    //THEN push lowercase into the charactersToUse list
-    charactersToUse = charactersToUse.concat(lowercase);
-    // AND APPEND on random number from the 'lowercase' list
-    // charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
-  }
+    if (useLower == true) {
+      //THEN CONCATENATE lowercase into the charactersToUse list
+      charactersToUse = charactersToUse.concat(lowercase);
+    }
 
   // CONFIRM if its using upper case letters
   let useUpper = confirm('Include uppercase letters in your password?')
 
   // IF  using upper case letters
-  if (useUpper == true) { 
+    if (useUpper == true) { 
 
-    // THEN push upper case into the charactersToUse list
-    charactersToUse = charactersToUse.concat(uppercase)
-    // AND APPEND on random number from the 'uppercase' list
-    // charactersToUse[[Math.floor(Math.random() * uppercase.length)]];
-  }
+      // THEN CONCATENATE upper case into the charactersToUse list
+      charactersToUse = charactersToUse.concat(uppercase)
+    }
   
   // CONFIRM if its using numbers
   let useNumbers = confirm('Include numbers in your password?')
 
   // IF using numbers
-  if (useNumbers == true) {
+    if (useNumbers == true) {
 
-    // THEN push numbers into the charactersToUse list
-    charactersToUse = charactersToUse.concat(numbers)
-    // AND APPEND on random number from the 'numbers' list
-    // charactersToUse.useNumbers[Math.floor(Math.random() * numbers.length)];
-  }
+      // THEN push numbers into the charactersToUse list
+      charactersToUse = charactersToUse.concat(numbers)
+    }
 
   // CONFIRM if its using symbols
   let useSymbols = confirm('Include symbols in your password?')
   // IF  using symbols
-  if (useSymbols == true) {
+    if (useSymbols == true) {
 
-    // THEN push symbols into the charactersToUse list
-    charactersToUse = charactersToUse.concat(symbols)
-    // AND APPEND on random number from the 'symbols' list
-    // charactersToUse.useSymbols[Math.floor(Math.random() * symbols.length)];
-  }
+      // THEN push symbols into the charactersToUse list
+      charactersToUse = charactersToUse.concat(symbols)
+    }
 
   // If no character type variables are chosen
   if ( !useLower && !useUpper && !useNumbers && !useSymbols) {
@@ -106,7 +90,7 @@ function generatePassword() {
     
   }
 
-  //'RETURN password'
+  //'RETURN finishedPW'
   return finishedPW;
 
 }
