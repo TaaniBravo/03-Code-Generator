@@ -32,10 +32,10 @@ function generatePassword() {
     // then exit function.
     return;
   }
-  else {
-    // ELSE if the user sends an empty prompt or hits cancel.
-    return alert('Please provide a number between 8 and 128 characters.');
-  }
+  // else {
+  //   // ELSE if the user sends an empty prompt or hits cancel.
+  //   return alert('Please provide a number between 8 and 128 characters.');
+  // }
 
   //DECLARE a new list of characters to use
   let charactersToUse = [];
@@ -48,9 +48,9 @@ function generatePassword() {
   //IF  using lowercase letters
   if (useLower == true) {
     //THEN push lowercase into the charactersToUse list
-    charactersToUse.push(lowercase);
+    charactersToUse = charactersToUse.concat(lowercase);
     // AND APPEND on random number from the 'lowercase' list
-    charactersToUse[lowercase[Math.floor(Math.random() * charactersToUse.length)]];
+    // charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
   }
 
   // CONFIRM if its using upper case letters
@@ -60,9 +60,9 @@ function generatePassword() {
   if (useUpper == true) { 
 
     // THEN push upper case into the charactersToUse list
-    charactersToUse.push(uppercase)
+    charactersToUse = charactersToUse.concat(uppercase)
     // AND APPEND on random number from the 'uppercase' list
-    // charactersToUse[Math.floor(Math.random() * uppercase.length)];
+    // charactersToUse[[Math.floor(Math.random() * uppercase.length)]];
   }
   
   // CONFIRM if its using numbers
@@ -72,9 +72,9 @@ function generatePassword() {
   if (useNumbers == true) {
 
     // THEN push numbers into the charactersToUse list
-    charactersToUse.push(numbers)
+    charactersToUse = charactersToUse.concat(numbers)
     // AND APPEND on random number from the 'numbers' list
-    // charactersToUse[Math.floor(Math.random() * numbers.length)];
+    // charactersToUse.useNumbers[Math.floor(Math.random() * numbers.length)];
   }
 
   // CONFIRM if its using symbols
@@ -83,15 +83,15 @@ function generatePassword() {
   if (useSymbols == true) {
 
     // THEN push symbols into the charactersToUse list
-    charactersToUse.push(symbols)
+    charactersToUse = charactersToUse.concat(symbols)
     // AND APPEND on random number from the 'symbols' list
-    // charactersToUse[Math.floor(Math.random() * symbols.length)];
+    // charactersToUse.useSymbols[Math.floor(Math.random() * symbols.length)];
   }
 
   // If no character type variables are chosen
   if ( !useLower && !useUpper && !useNumbers && !useSymbols) {
     // THEN ALERT the user that they need to pick at least one.
-    alert('You must pick at least 1 of the 4 criteria to fill your password. Try again.')
+    alert('You must pick at least 1 of the 4 criteria to fill your password. Try again.');
     // RETURN the user so they can start over.
     return;
   }  
@@ -99,14 +99,15 @@ function generatePassword() {
   while( password.length < passwordLength ) {
 
     // SELECT a 'randomcharacter' a character from charactersToUse
-    let randomcharacter = charactersToUse[Math.floor(Math.random(lowercase, uppercase, numbers, symbols) * charactersToUse.length)];
-    // APPEND 'randomcharacter' to 'password' string
-    password.push(randomcharacter)
+    let randomCharacter = charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
+    // APPEND 'randomcharacter' to 'password' array
+    password.push(randomCharacter).join
+    finishedPW = password.join('')
     
   }
 
   //'RETURN password'
-  return password;
+  return finishedPW;
 
 }
 // Write password to the #password input
