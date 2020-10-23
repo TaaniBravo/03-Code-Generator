@@ -8,8 +8,14 @@ let uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'
 //List of numbers.
 let numbers = [0,1,2,3,4,5,6,7,8,9];
 // List of symbols
-let symbols = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+let symbols = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
+let randomLower = lowercase[Math.floor(Math.random() * lowercase.length)];
+let randomUpper = uppercase[Math.floor(Math.random() * uppercase.length)];
+let randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+let randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+
+console.log (randomLower, randomUpper, randomNumber, randomSymbol)
 
 
 function generatePassword() {
@@ -38,9 +44,9 @@ function generatePassword() {
   //IF  using lowercase letters
   if (useLower == true) {
     //THEN push lowercase into the charactersToUse list
-    charactersToUse.push(lowercase[[Math.floor(Math.random * lowercase.length)]])
-    //AND APPEND on random number from the 'lowercase' list
-    charactersToUse.append
+    charactersToUse.push(randomLower)
+    // AND APPEND on random number from the 'lowercase' list
+
   }
 console.log(charactersToUse)
   // CONFIRM if its using upper case letters
@@ -50,7 +56,7 @@ console.log(charactersToUse)
   if (useUpper == true) { 
 
     // THEN push upper case into the charactersToUse list
-
+    charactersToUse.push(randomUpper)
     // AND APPEND on random number from the 'uppercase' list
 
   }
@@ -61,9 +67,9 @@ console.log(charactersToUse)
   // IF using numbers
   if (useNumbers == true) {
 
-  // THEN push numbers into the charactersToUse list
-
-  // AND APPEND on random number from the 'numbers' list
+    // THEN push numbers into the charactersToUse list
+    charactersToUse.push(randomNumber)
+    // AND APPEND on random number from the 'numbers' list
 
   }
 
@@ -72,9 +78,9 @@ console.log(charactersToUse)
   // IF  using symbols
   if (useSymbols == true) {
 
-  // THEN push symbols into the charactersToUse list
-
-  // AND APPEND on random number from the 'symbols' list
+    // THEN push symbols into the charactersToUse list
+    charactersToUse.push(randomSymbol)
+    // AND APPEND on random number from the 'symbols' list
 
   }
 
@@ -90,7 +96,9 @@ console.log(charactersToUse)
 
   while( password.length < passwordLength ) {
 
-    // SELECT a 'randomcharacter' a character fromm charactersToUse
+    let randomcharacter = 
+
+    // SELECT a 'randomcharacter' a character from charactersToUse
     // APPEND 'randomcharacter' to 'password' string
 
   }
