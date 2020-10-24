@@ -25,7 +25,7 @@ function generatePassword() {
   let charactersToUse = [];
 
   // DECLARE a new password string
-  let password = [];
+  let password = '';
 
   // CONFIRM if the password generator is using lower case letters
   let useLower = confirm('Include lowercase letters in your password?')
@@ -76,14 +76,13 @@ function generatePassword() {
 
     // SELECT a 'randomcharacter' a character from charactersToUse
     let randomCharacter = charactersToUse[Math.floor(Math.random() * charactersToUse.length)];
-    // APPEND 'randomcharacter' to 'password' array
-    password.push(randomCharacter).join
-    finishedPW = password.join('')
+    // APPEND 'randomcharacter' to 'password' string
+    password += randomCharacter
     
   }
 
-  //'RETURN finishedPW'
-  return finishedPW;
+  // RETURN 'password' so it is logged in the textarea in the HTML.
+  return password;
 
 }
 // Write password to the #password input
