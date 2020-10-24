@@ -71,7 +71,7 @@ function generatePassword() {
     // RETURN the user so they can start over.
     return;
   }  
- console.log(charactersToUse)
+
   while( password.length < passwordLength ) {
 
     // SELECT a 'randomcharacter' a character from charactersToUse
