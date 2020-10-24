@@ -9,7 +9,7 @@ This is the homework assignment for week 3 at UW Coding Bootcamp. The assignment
     5. Resources
 
 ## Visual Example
-![Alt Text](https://gph.is/g/EveGGYY)
+![Alt Text](https://media.giphy.com/media/sAryBPisWMC6kTc450/giphy.gif)
 
 ## User Story
 ```
