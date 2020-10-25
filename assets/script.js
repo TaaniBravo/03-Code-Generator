@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// List if lower case letters.
+// List of lower case letters.
 let lowercase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 // List of upper case letters
 let uppercase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
@@ -15,7 +15,7 @@ function generatePassword() {
   //Prompt the user for a password length
   const passwordLength = parseInt(prompt('Provide a length for the password between 8 and 128 characters.'))
   // if statement if the the password length is 0.
-  if (passwordLength < 8 || passwordLength > 128) {
+  if (!(passwordLength >= 8 || passwordLength <= 128)) {
     alert('Please provide a number between 8 and 128 characters.')
     // then exit function.
     return;
