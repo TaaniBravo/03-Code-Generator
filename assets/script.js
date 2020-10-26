@@ -15,7 +15,7 @@ function generatePassword() {
   //Prompt the user for a password length
   const passwordLength = parseInt(prompt('Provide a length for the password between 8 and 128 characters.'))
   // if statement if the the password length is 0.
-  if (!(passwordLength >= 8 || passwordLength <= 128)) {
+  if (!(passwordLength >= 8 && passwordLength <= 128)) {
     alert('Please provide a number between 8 and 128 characters.')
     // then exit function.
     return;
